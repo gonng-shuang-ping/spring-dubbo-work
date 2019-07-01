@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" th:src="@{/jquery/jquery-2.1.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+</head>
+<body>
+    <h3>登陆页面</h3>
+    <form action="/user/userlogin" method="post">
+        用户名:<input name="name"><br/>
+        密码：<input name="password"><br/>
+        <button type="submit">登陆</button><br/>
+        <a href="/user/find">忘记密码?</a><br/>
+    </form>
+
+
+</body>
+</html>

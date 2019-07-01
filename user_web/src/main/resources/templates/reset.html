@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" th:src="@{/jquery/jquery-2.1.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+</head>
+<body>
+    <form>
+        <input type="hidden" name="name" th:value="${name}" id="name"/>
+        新密码:<input id="password" name="password"/>
+        确认密码:<input id="repetition" name="repetition"/><span id="pw"></span>
+        <button type="button" onclick="affirm()">修改</button>
+    </form>
+
+    <script type="text/javascript">
+        function affirm() {
+            var a=$("#password").val();
+            var b=$("#repetition").val();
+            var name=$("#name").val();
+            debugger;
+            if (a==b){
+                window.location.href="/user/userupdate?name="+name+"&password="+a;
+            }else {
+                $("#pw").html("密码不一致");
+            }
+        }
+    </script>
+</body>
+</html>

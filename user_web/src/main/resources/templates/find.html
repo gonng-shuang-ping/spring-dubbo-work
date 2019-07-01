@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" th:src="@{/jquery/jquery-2.1.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+</head>
+<body>
+    <form>
+        用户名:<input id="name" name="name"/><br/>
+        <button onclick="tofind()" type="button">找回密码</button>
+        <span id="aaa"></span>
+    </form>
+
+    <script type="text/javascript">
+        function tofind() {
+            var a=$("#name").val();
+            $.ajax({
+                type: "get",
+                url: "/user/findPassword?name="+a,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                // data:JSON.stringify({
+                //     "mail":$("#mail").val()
+                // }),
+                success: function (message) {
+                    if (message==0){
+                        $("#aaa").text("发送失败!");
+                    }
+                    $("#aaa").text("发送成功！");
+                },
+                error: function (message) {
+
+                }
+            });
+        }
+    </script>
+</body>
+</html>
